@@ -54,7 +54,7 @@ RachnaX follows a secure, scalable, API-driven architecture powered by AWS Bedro
 ```mermaid
 flowchart TD
 
-    A[User - Browser Interface] --> B[Frontend - Next.js / React]
+    A[User - Browser Interface] --> B[Frontend - Javascript]
 
     B --> C[Backend API Layer]
 
@@ -66,7 +66,7 @@ flowchart TD
     C --> B
     B --> A
 
-    C --> F[(AWS IAM Roles)]
+    
     C --> G[(Environment Variables - Secure API Keys)]
     C --> H[(AWS Billing & Usage Monitoring)]
 
