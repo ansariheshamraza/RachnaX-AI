@@ -119,10 +119,10 @@ Upon credit activation:
 ![Workspace Screenshot](Workspace%20preview%202.png)
 
 - Generating UI Preview
-![Workspace Screenshot](Workspace%20preview%203.png)
+![Workspace Screenshot](workspace%20preview%203.png)
 
 - Test Generation Using other Model
-![Workspace Screenshot](Workspace%20preview%204.png)
+![Workspace Screenshot](workspace%20preview%204.png)
 
 
 ---
