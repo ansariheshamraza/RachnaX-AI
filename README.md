@@ -75,6 +75,7 @@ flowchart TD
     style C fill:#fff2e6,stroke:#333
     style D fill:#f3e6ff,stroke:#333
     style E fill:#e6ffe6,stroke:#333
+```
 
 ### Security Approach
 - Environment variables for API keys
