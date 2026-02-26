@@ -1,4 +1,4 @@
-# 🧠 RachnaX AI – Content Creation Assistant
+# 🧠 [RachnaX AI](https://rachnax.vercel.app/) – Content Creation Assistant
 
 ## 🚀 Overview
 RachnaX AI is a structured, multilingual AI workspace designed for Indian students, creators, and early-stage entrepreneurs. Unlike traditional open-ended prompt tools, RachnaX provides a guided creation system where users define intent, audience, tone, and language before generating content.
