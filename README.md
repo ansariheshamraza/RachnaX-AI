@@ -39,6 +39,7 @@ Instead of “Ask AI anything,” we enable:
 ## 🏗 Current Progress
 
 - ✅ Fully designed and deployed UI/UX
+- ✅ Engine routing as per the user identity (eg - Academic Engine, Content Engine, Business Engine & Hybrid Engine)
 - ✅ Structured prompt builder implemented
 - ✅ Multilingual input-output working
 - ✅ Model routing logic designed
@@ -78,10 +79,10 @@ flowchart TD
 ```
 
 ### Security Approach
-- Environment variables for API keys
+- API keys stored in secure Environment variables
 - Encrypted HTTPS communication
-- IAM-based access (planned AWS deployment)
 - Budget monitoring for cost control
+- No permanent storage of user content (real-time processign)
 
 ---
 
@@ -93,13 +94,17 @@ Upon credit activation:
 - Claude 3 Haiku as primary structured generation model
 - Optional reasoning model for Brainstorm mode
 - Usage monitoring & billing alerts
-- Scalable architecture for future growth
 
 ---
 
 ## 🌍 Live Demo
 
-🔗 https://YOUR_LIVE_LINK
+- UI/UX Focused Website
+- SEO Optimized
+- Google Search Page Ranked
+- Currently the Workspace page is not indexed on google - awaiting credits.
+
+🔗 [RachnaX AI](https://rachnax.vercel.app/)
 
 ---
 
@@ -134,5 +139,5 @@ RachnaX aims to become a structured intelligence layer for Bharat — enabling m
 
 ## 👤 Founder
 
-Built by YOUR_NAME  
+Built by [Ansari Hesham Raza](https://www.linkedin.com/in/ansariheshamraza/)
 Hackathon Submission – AI for Bharat
