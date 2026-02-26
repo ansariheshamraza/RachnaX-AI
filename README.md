@@ -99,10 +99,10 @@ Upon credit activation:
 
 ## 🌍 Live Demo
 
-- UI/UX Focused Website
-- SEO Optimized
-- Google Search Page Ranked
-- Currently the Workspace page is not indexed on google - awaiting credits.
+- **UI/UX Focused Website**
+- **SEO Optimized**
+- **Google Search Page Ranked**
+- **Currently the Workspace page is not indexed on google - awaiting credits.**
 
 🔗 [RachnaX AI](https://rachnax.vercel.app/)
 
