@@ -49,13 +49,32 @@ Instead of “Ask AI anything,” we enable:
 
 ## 🧱 Architecture (High-Level)
 
-Frontend (Next.js / React)
-        ↓
-Backend API Layer (Secure Server Environment)
-        ↓
-AWS Bedrock (Claude 3 Haiku – Planned Production Model)
-        ↓
-Structured Response Rendering
+RachnaX follows a secure, scalable, API-driven architecture powered by AWS Bedrock.
+
+```mermaid
+flowchart TD
+
+    A[User - Browser Interface] --> B[Frontend - Next.js / React]
+
+    B --> C[Backend API Layer]
+
+    C --> D[AWS Bedrock]
+    D --> E[Claude 3 Haiku Model]
+
+    E --> D
+    D --> C
+    C --> B
+    B --> A
+
+    C --> F[(AWS IAM Roles)]
+    C --> G[(Environment Variables - Secure API Keys)]
+    C --> H[(AWS Billing & Usage Monitoring)]
+
+    style A fill:#f9f9f9,stroke:#333
+    style B fill:#e6f2ff,stroke:#333
+    style C fill:#fff2e6,stroke:#333
+    style D fill:#f3e6ff,stroke:#333
+    style E fill:#e6ffe6,stroke:#333
 
 ### Security Approach
 - Environment variables for API keys
