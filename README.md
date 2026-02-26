@@ -1,4 +1,4 @@
-# 🧠 RachnaX AI – Structured Intelligence Workspace
+# 🧠 RachnaX AI – Content Creation Assistant
 
 ## 🚀 Overview
 RachnaX AI is a structured, multilingual AI workspace designed for Indian students, creators, and early-stage entrepreneurs. Unlike traditional open-ended prompt tools, RachnaX provides a guided creation system where users define intent, audience, tone, and language before generating content.
@@ -111,13 +111,10 @@ Upon credit activation:
 ## 📸 Screenshots
 
 ### Workspace Interface
-![Workspace Screenshot](YOUR_SCREENSHOT_PATH/workspace.png)
+![Workspace Screenshot](Workspace%20preview.png)
 
-### Brainstorm Mode
-![Brainstorm Screenshot](YOUR_SCREENSHOT_PATH/brainstorm.png)
+![Workspace Screenshot](Workspace%20preview%202.png)
 
-### Output Generation
-![Output Screenshot](YOUR_SCREENSHOT_PATH/output.png)
 
 ---
 
