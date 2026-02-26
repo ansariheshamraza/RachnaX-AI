@@ -32,7 +32,7 @@ RachnaX introduces a structured intelligence layer on top of foundation models.
 - ✅ Error Handling & Regeneration Control
 
 Instead of “Ask AI anything,” we enable:
-**Configure → Structure → Generate**
+**Configure → Brainstorm → Structure → Generate**
 
 ---
 
