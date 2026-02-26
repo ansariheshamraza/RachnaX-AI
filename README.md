@@ -136,5 +136,5 @@ RachnaX aims to become a structured intelligence layer for Bharat — enabling m
 
 ## 👤 Founder
 
-Built by [Ansari Hesham Raza](https://www.linkedin.com/in/ansariheshamraza/)
-Hackathon Submission – AI for Bharat
+- Built by [Ansari Hesham Raza](https://www.linkedin.com/in/ansariheshamraza/)
+- Hackathon Submission – AI for Bharat
