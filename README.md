@@ -99,7 +99,7 @@ Upon credit activation:
 
 ## 🌍 Live Demo
 
-- **UI/UX Focused Website**
+- **UI/UX Prioritised**
 - **SEO Optimized**
 - **Google Search Page Ranked**
 - **Currently the Workspace page is not indexed on google - awaiting credits.**
