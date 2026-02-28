@@ -113,15 +113,15 @@ Upon credit activation:
 ### Workspace Interface
 
 - Site Preview
-![Workspace Screenshot](Workspace%20preview.png)
+![Workspace Screenshot](/images/Workspace%20preview.png)
 
 - Workspace Preview
-![Workspace Screenshot](Workspace%20preview%202.png)
+![Workspace Screenshot](/images/Workspace%20preview%202.png)
 
-![Workspace Screenshot](workspace%20preview%203.png)
+![Workspace Screenshot](/images/workspace%20preview%203.png)
 
 - Test Generation Using other Model
-![Workspace Screenshot](workspace%20preview%204.png)
+![Workspace Screenshot](/images/workspace%20preview%204.png)
 
 
 ---
