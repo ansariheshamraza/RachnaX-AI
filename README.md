@@ -104,7 +104,7 @@ Upon credit activation:
 - **Google Search Page Ranked**
 - **Currently the Workspace page is not indexed on google - awaiting credits.**
 
-🔗 [RachnaX AI](https://rachnax.vercel.app/)
+🔗 [RachnaX AI Home (This is homepage. For now, working demo cannot be shared publicly.)](https://rachnax.vercel.app/)
 
 ---
 
