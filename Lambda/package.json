@@ -1,0 +1,23 @@
+{
+  "name": "rachnax-bedrock-lambda",
+  "version": "1.0.0",
+  "description": "AWS Lambda function for RachnaX AI Bedrock integration",
+  "type": "module",
+  "main": "bedrock-handler.js",
+  "scripts": {
+    "package": "zip -r function.zip bedrock-handler.js node_modules package.json",
+    "deploy": "aws lambda update-function-code --function-name rachnax-bedrock-handler --zip-file fileb://function.zip --region ap-south-1"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "bedrock",
+    "claude",
+    "ai"
+  ],
+  "author": "RachnaX",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.540.0"
+  }
+}
