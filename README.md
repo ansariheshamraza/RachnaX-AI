@@ -7,7 +7,7 @@
 
 > **AI for Media, Content & Digital Experiences** - Transforming how students, creators, and builders generate structured, high-quality content using AWS Generative AI.
 
-## 🎯 Hackathon Challenge: AI for Media, Content & Digital Experiences
+## 🎯 Hackathon Challenge: (Students Track) AI for Media, Content & Digital Experiences
 
 RachnaX AI addresses the critical challenge of **content creation at scale** for India's digital-first generation. Built for the **AI for Bharat Hackathon**, this platform leverages AWS Generative AI services to democratize access to professional-grade content creation tools.
 
@@ -540,6 +540,7 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 **Built with ❤️ for India's Digital Future**
 
 *Empowering students, creators, and builders with AI-powered structured thinking*
+
 
 
 
