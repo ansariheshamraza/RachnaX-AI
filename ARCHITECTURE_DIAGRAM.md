@@ -15,7 +15,7 @@ end
 %% ---------------- VERCEL API ----------------
 subgraph VERCEL["Vercel API Layer"]
 B[/api/token<br/>Fetch Access Token/]
-C[/api/endpoint<br/>Fetch Endpoint Config (Obfuscated)/]
+C[/api/endpoint<br/>Fetch Endpoint Config Obfuscated/]
 D[/api/generate<br/>Content Generation Endpoint<br/>Vercel Edge/]
 end
 
@@ -296,5 +296,6 @@ CloudWatch Alarms
 | Architecture | Status | Cost | Performance |
 |--------------|--------|------|-------------|
 | **AWS Bedrock** | Active | ~$13.80 | Better |
+
 
 
