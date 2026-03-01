@@ -97,34 +97,39 @@ Go beyond simple generation with deep strategic thinking.
 | Use Case | Quick content | Deep thinking |
 
 **Example Output Structure**:
-```
+```mermaid
 1. Core Analysis
-   - Fundamental concepts
-   - Key components
-   - Current state
+flowchart TD
 
-2. Multiple Perspectives
-   - Perspective A: [Analysis]
-   - Perspective B: [Analysis]
-   - Perspective C: [Analysis]
+A[Analysis Framework]
 
-3. Hidden Assumptions
-   - Assumption 1: [Explanation]
-   - Assumption 2: [Explanation]
+A --> B[1. Core Analysis]
+B --> B1[Fundamental Concepts]
+B --> B2[Key Components]
+B --> B3[Current State]
 
-4. Blind Spots & Risks
-   - Risk 1: [Mitigation]
-   - Risk 2: [Mitigation]
+A --> C[2. Multiple Perspectives]
+C --> C1[Perspective A - Analysis]
+C --> C2[Perspective B - Analysis]
+C --> C3[Perspective C - Analysis]
 
-5. Strategic Framework
-   - Framework overview
-   - Implementation steps
-   - Success metrics
+A --> D[3. Hidden Assumptions]
+D --> D1[Assumption 1 - Explanation]
+D --> D2[Assumption 2 - Explanation]
 
-6. Action Steps
-   - Immediate actions
-   - Short-term goals
-   - Long-term strategy
+A --> E[4. Blind Spots and Risks]
+E --> E1[Risk 1 - Mitigation]
+E --> E2[Risk 2 - Mitigation]
+
+A --> F[5. Strategic Framework]
+F --> F1[Framework Overview]
+F --> F2[Implementation Steps]
+F --> F3[Success Metrics]
+
+A --> G[6. Action Steps]
+G --> G1[Immediate Actions]
+G --> G2[Short Term Goals]
+G --> G3[Long Term Strategy]
 ```
 
 ---
@@ -590,6 +595,7 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
 
 
 
