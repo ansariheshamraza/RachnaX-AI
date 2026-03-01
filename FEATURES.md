@@ -30,14 +30,14 @@ A3[Structure]
 A4[Language]
 A5[Target Audience]
 A6[Target Platform]
-A7[More]
+A7[More+]
 end
 
 subgraph AI_DETAILS [AI Processing]
 B1[AWS Bedrock]
 B2[Claude 3 Haiku]
 B3[System Prompt]
-B4[12K Tokens]
+B4[1,200 Tokens]
 end
 
 subgraph OUTPUT_DETAILS [Structured Output]
@@ -51,6 +51,9 @@ A --- A1
 A --- A2
 A --- A3
 A --- A4
+A --- A5
+A --- A6
+A --- A7
 
 B --- B1
 B --- B2
@@ -582,4 +585,5 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
 
