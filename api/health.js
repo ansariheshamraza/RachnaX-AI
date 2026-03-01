@@ -5,9 +5,8 @@ export default async function handler(req, res) {
     message: 'API is running',
     timestamp: new Date().toISOString(),
     env: {
-      hasGithubToken: !!process.env.GITHUB_TOKEN,
-      githubTokenLength: process.env.GITHUB_TOKEN?.length || 0,
       nodeVersion: process.version
     }
   });
 }
+
