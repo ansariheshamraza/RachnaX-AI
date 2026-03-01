@@ -1,7 +1,7 @@
 # AWS Lambda Deployment Guide
 ## RachnaX AI - Bedrock Integration
 
-This guide walks you through deploying the Lambda function for AWS Bedrock integration.
+Complete guide for deploying RachnaX AI on AWS infrastructure using Lambda and Bedrock.
 
 ## Prerequisites
 
@@ -189,29 +189,24 @@ Your API Gateway URL will be:
 https://{API_ID}.execute-api.ap-south-1.amazonaws.com/prod/generate
 ```
 
-## Update Application
+## Deploy Application
 
-### 1. Set Environment Variable
+### 1. Set Environment Variables
 
-Add to Vercel environment variables:
+Add to your deployment platform (Vercel/AWS):
 
 ```env
 AWS_API_GATEWAY_URL=https://your-api-id.execute-api.ap-south-1.amazonaws.com/prod/generate
+AWS_API_KEY=your_api_key (optional)
 ```
 
-### 2. Replace API File
-
-Replace the content of `api/generate.js` with the content from `api/generate-aws-bedrock.js`:
+### 2. Deploy to Production
 
 ```bash
-# Backup current file
-cp api/generate.js api/generate.js.backup
-
-# Replace with AWS version
-cp api/generate-aws-bedrock.js api/generate.js
-
 # Deploy to Vercel
 vercel --prod
+
+# Or deploy to your preferred platform
 ```
 
 ## Testing
@@ -242,10 +237,10 @@ curl -X POST https://your-api-id.execute-api.ap-south-1.amazonaws.com/prod/gener
 
 ### Test from Application
 
-1. Deploy to Vercel with `AWS_API_GATEWAY_URL` set
-2. Open workspace: `https://rachnax.vercel.app/workspace/`
+1. Deploy with `AWS_API_GATEWAY_URL` configured
+2. Open your application workspace
 3. Enter a prompt and generate content
-4. Check browser console for any errors
+4. Verify response is generated successfully
 
 ## Monitoring
 
@@ -386,19 +381,19 @@ aws lambda update-function-code \
   --region ap-south-1
 ```
 
-## Rollback to GitHub Models
+## Troubleshooting Deployment
 
-If you need to rollback:
+If you encounter issues:
 
 ```bash
-# Restore backup
-cp api/generate.js.backup api/generate.js
+# Check Lambda logs
+aws logs tail /aws/lambda/rachnax-bedrock-handler --follow
 
-# Deploy to Vercel
-vercel --prod
+# Verify API Gateway
+curl -X POST https://your-api-id.execute-api.ap-south-1.amazonaws.com/prod/generate
 
-# Remove AWS environment variable (optional)
-# Keep it if you plan to switch back later
+# Test application endpoint
+curl -X POST https://your-app.com/api/generate
 ```
 
 ## Security Best Practices
