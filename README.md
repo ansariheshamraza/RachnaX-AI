@@ -1,6 +1,6 @@
 # RachnaX AI - Structured Thinking & Content Creation Platform
 
-[![AI for Bharat Hackathon](https://img.shields.io/badge/AI%20for%20Bharat-Hackathon%202024-orange)](https://aiforabharat.devfolio.co/)
+[![AI for Bharat Hackathon](https://img.shields.io/badge/AI%20for%20Bharat-Hackathon%202026-orange)](https://vision.hack2skill.com/event/ai-for-bharat)
 [![AWS Bedrock](https://img.shields.io/badge/AWS-Bedrock-FF9900?logo=amazon-aws)](https://aws.amazon.com/bedrock/)
 [![Claude 3 Haiku](https://img.shields.io/badge/Claude%203-Haiku-5A67D8)](https://www.anthropic.com/claude)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -33,7 +33,7 @@ RachnaX AI is an intelligent content generation platform that goes beyond simple
 1. **Transform Ideas into Structure** - Convert vague thoughts into organized frameworks
 2. **Enhance Thinking Quality** - Improve how users articulate and develop ideas
 3. **Generate Publication-Ready Content** - Create professional content across formats
-4. **Support Multiple Languages** - Generate content in 19+ Indian languages
+4. **Support Multiple Languages** - Generate content in Indian languages
 5. **Adapt to Context** - Understand tone, structure, and audience requirements
 
 ### Key Features
@@ -41,7 +41,7 @@ RachnaX AI is an intelligent content generation platform that goes beyond simple
 #### 🎨 Intelligent Content Generation
 - **Multiple Tones**: Professional, Casual, Academic, Persuasive, Technical, and 11 more
 - **Diverse Structures**: Blog posts, Essays, Social media, Technical docs, Scripts
-- **Language Support**: English, Hindi, Tamil, Telugu, Bengali, and 15+ Indian languages
+- **Language Support**: English, Hindi, Marathi, Hinglish - Hindi in English Typescript -Indian languages
 - **Context-Aware**: Optional context input for personalized content
 
 #### 🧠 Strategic Brainstorm Mode
@@ -51,7 +51,7 @@ RachnaX AI is an intelligent content generation platform that goes beyond simple
 - Provides actionable frameworks
 
 #### ⚡ Real-Time Generation
-- Fast response times (< 3 seconds)
+- Fast response times (< 5 seconds)
 - Streaming-like experience
 - Skeleton loader for better UX
 - Error handling and retry logic
@@ -73,7 +73,7 @@ RachnaX AI is an intelligent content generation platform that goes beyond simple
 - **Model**: Claude 3 Haiku (`anthropic.claude-3-haiku-20240307-v1:0`)
 - **Purpose**: Core AI generation engine
 - **Why**: Fast, cost-effective, high-quality output with strong reasoning
-- **Configuration**: 16,000 max tokens, structured system prompts
+- **Configuration**: 1,200 max tokens, structured system prompts
 
 #### 2. **AWS Lambda** (Serverless Compute)
 - **Runtime**: Node.js 20.x
@@ -92,10 +92,19 @@ RachnaX AI is an intelligent content generation platform that goes beyond simple
 
 ### Architecture Flow
 
-```
-User Input → Vercel Edge → API Gateway → Lambda → Bedrock → Response
-                                                      ↓
-                                                 CloudWatch
+```mermaid
+flowchart LR
+
+A[User Input]
+B[Vercel Edge]
+C[API Gateway]
+D[AWS Lambda]
+E[AWS Bedrock]
+F[Response]
+G[CloudWatch]
+
+A --> B --> C --> D --> E --> F
+D --> G
 ```
 
 **Detailed Flow**:
@@ -537,3 +546,4 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 **Built with ❤️ for India's Digital Future**
 
 *Empowering students, creators, and builders with AI-powered structured thinking*
+
