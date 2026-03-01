@@ -1,55 +1,21 @@
 // ============================================
 // RachnaX AI - Content Generation API
-// Abstraction layer for AI model providers
+// AWS Bedrock Implementation (Drop-in Replacement)
 // ============================================
-
-import OpenAI from "openai";
-import { GoogleGenAI } from "@google/genai";
-
+//
+// This file is a complete replacement for api/generate.js
+// Architecture: API Gateway → Lambda → Bedrock (Claude 3 Haiku)
+//
+// Pure AWS implementation - no fallback providers
+//
+// TO USE:
+// 1. Deploy Lambda function (see Lambda/bedrock-handler.js)
+// 2. Create API Gateway and get URL
+// 3. Set AWS_API_GATEWAY_URL in environment variables
+// 4. Replace api/generate.js with this file
+// 5. Done!
+//
 // ============================================
-// ACTUAL AWS BEDROCK INTEGRATION (COMMENTED)
-// Uncomment this section to use real AWS Bedrock
-// ============================================
-/*
-import { BedrockRuntimeClient, InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
-
-// Initialize AWS Bedrock client
-const bedrockClient = new BedrockRuntimeClient({
-  region: process.env.AWS_REGION || "ap-south-1",
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  }
-});
-
-async function invokeBedrockClaude(prompt, systemPrompt) {
-  const modelId = "anthropic.claude-3-haiku-20240307-v1:0";
-  
-  const payload = {
-    anthropic_version: "bedrock-2023-05-31",
-    max_tokens: 16000,
-    messages: [
-      {
-        role: "user",
-        content: prompt
-      }
-    ],
-    system: systemPrompt
-  };
-
-  const command = new InvokeModelCommand({
-    modelId: modelId,
-    contentType: "application/json",
-    accept: "application/json",
-    body: JSON.stringify(payload)
-  });
-
-  const response = await bedrockClient.send(command);
-  const responseBody = JSON.parse(new TextDecoder().decode(response.body));
-  
-  return responseBody.content[0].text;
-}
-*/
 
 // RachnaX AI System Prompt
 const systemPrompt = `You are RachnaX AI — a structured thinking and execution engine designed for ambitious students, creators, and builders.
@@ -118,53 +84,38 @@ Response Style:
 You are not just answering.
 You are upgrading the user's thinking and execution capacity.`;
 
-// GitHub Models API call
-async function callGitHubModels(prompt) {
-  const githubToken = process.env.GITHUB_TOKEN;
-  const baseUrl = "https://models.inference.ai.azure.com";
-  const modelName = "gpt-4o-mini";
-
-  const openai = new OpenAI({ 
-    apiKey: githubToken,
-    baseURL: baseUrl
-  });
-
-  const completion = await openai.chat.completions.create({
-    model: modelName,
-    messages: [
-      {
-        role: "system",
-        content: systemPrompt
-      },
-      {
-        role: "user",
-        content: prompt
-      }
-    ],
-    max_completion_tokens: 16000
-  });
-
-  return completion.choices?.[0]?.message?.content || "";
-}
-
-// Gemini API fallback
-async function callGeminiAPI(prompt) {
-  const geminiApiKey = process.env.GEMINI_API_KEY;
+// AWS Bedrock via API Gateway
+async function callAWSBedrockViaGateway(prompt) {
+  const apiGatewayUrl = process.env.AWS_API_GATEWAY_URL;
   
-  if (!geminiApiKey || geminiApiKey === 'your_gemini_api_key_here') {
-    throw new Error("Gemini API key not configured");
+  if (!apiGatewayUrl || apiGatewayUrl === 'api_gateway_url') {
+    throw new Error("AWS API Gateway URL not configured");
   }
 
-  const ai = new GoogleGenAI({
-    apiKey: geminiApiKey
+  const response = await fetch(apiGatewayUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      // Optional: Add API key if using API Gateway API keys
+      ...(process.env.AWS_API_KEY && { 'x-api-key': process.env.AWS_API_KEY })
+    },
+    body: JSON.stringify({
+      prompt: prompt,
+      systemPrompt: systemPrompt,
+      modelId: 'anthropic.claude-3-haiku-20240307-v1:0',
+      maxTokens: 1200
+    })
   });
 
-  const response = await ai.models.generateContent({
-    model: "gemini-1.5-flash",
-    contents: `${systemPrompt}\n\nUser Query: ${prompt}`,
-  });
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`AWS API Gateway error: ${response.status} - ${errorText}`);
+  }
 
-  return response.text || "";
+  const data = await response.json();
+  
+  // Handle different response formats
+  return data.content || data.output || data.text || data.body?.content || "";
 }
 
 export default async function handler(req, res) {
@@ -195,37 +146,20 @@ export default async function handler(req, res) {
       });
     }
 
-    const githubToken = process.env.GITHUB_TOKEN;
+    const apiGatewayUrl = process.env.AWS_API_GATEWAY_URL;
     
-    if (!githubToken || githubToken === 'your_github_token_here') {
+    if (!apiGatewayUrl || apiGatewayUrl === 'api_gateway_url') {
       return res.status(500).json({
         success: false,
-        message: "API credentials not configured."
+        message: "AWS API Gateway URL not configured."
       });
     }
 
-    let text = "";
-
-    try {
-      // Try GitHub Models first
-      text = await callGitHubModels(prompt);
-      
-      if (!text) {
-        throw new Error("No content generated from primary model");
-      }
-      
-    } catch (primaryError) {
-      // Silent fallback to Gemini
-      try {
-        text = await callGeminiAPI(prompt);
-        
-        if (!text) {
-          throw new Error("No content generated from model");
-        }
-        
-      } catch (fallbackError) {
-        throw new Error("Generation service unavailable");
-      }
+    // Call AWS Bedrock via API Gateway
+    const text = await callAWSBedrockViaGateway(prompt);
+    
+    if (!text) {
+      throw new Error("No content generated from AWS Bedrock");
     }
 
     return res.status(200).json({
@@ -247,8 +181,10 @@ export default async function handler(req, res) {
       userMessage = "Rate limit exceeded. Please wait a moment and try again.";
     } else if (error.message?.includes('timeout')) {
       userMessage = "Request timeout. Please try again.";
-    } else if (error.message?.includes('Generation service unavailable')) {
-      userMessage = "Service temporarily unavailable. Please try again later.";
+    } else if (error.message?.includes('AWS API Gateway URL not configured')) {
+      userMessage = "AWS Bedrock service not configured.";
+    } else if (error.message?.includes('No content generated')) {
+      userMessage = "No content generated. Please try again.";
     }
     
     return res.status(500).json({
