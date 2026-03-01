@@ -44,7 +44,7 @@ Cost per request:
 ```javascript
 const payload = {
   anthropic_version: "bedrock-2023-05-31",
-  max_tokens: 16000,
+  max_tokens: 1200,
   messages: [
     {
       role: "user",
@@ -574,7 +574,7 @@ function handleError(error) {
 
 **Breakdown**:
 ```
-Total: 2.8 seconds (average)
+Total: 4.8 seconds (average)
 ├── Frontend processing: 50ms
 ├── Network latency: 100ms
 ├── API Gateway: 50ms
@@ -589,22 +589,6 @@ Total: 2.8 seconds (average)
 - CDN for static assets
 - Connection pooling
 - Response caching (future)
-
-### Scalability Testing
-
-**Load Test Results**:
-```
-Concurrent Users: 1000
-Duration: 5 minutes
-Total Requests: 50,000
-
-Results:
-- Success Rate: 99.8%
-- Average Response: 2.9s
-- P95 Response: 4.2s
-- P99 Response: 6.1s
-- Errors: 0.2% (mostly timeouts)
-```
 
 ---
 
@@ -727,3 +711,4 @@ jobs:
 
 **Technical Excellence Through AWS**  
 *Leveraging AWS Bedrock, Lambda, and API Gateway for scalable AI*
+
