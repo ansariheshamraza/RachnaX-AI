@@ -562,7 +562,7 @@ Track and optimize performance.
 | Brainstorm Mode | ✅ | ✅ | ❌ | ❌ |
 | AWS Infrastructure | ✅ | ❌ | ❌ | ❌ |
 | Tone Options | 15+ | Almost | 10+ | 8+ |
-| Structure Types | 10+ | Manual | 50+ | 90+ |
+| Structure Types | Manual & Predefined 10+ | Manual | 50+ | 90+ |
 | Response Time | 3-5s | 3-5s | 2-4s | 2-3s |
 | Cost | Low | Medium | High | High |
 | Open Source | ✅ | ❌ | ❌ | ❌ |
@@ -593,6 +593,7 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
 
 
 
