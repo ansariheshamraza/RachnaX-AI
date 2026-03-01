@@ -393,10 +393,8 @@ Content creation is mentally taxing:
    ```
 
 ### Detailed Documentation
-- **[Lambda Deployment Guide](Lambda/DEPLOYMENT_GUIDE.md)** - Complete AWS setup
+- **[Lambda Deployment Guide](Lambda/DEPLOYMENT.md)** - Complete AWS setup
 - **[Architecture Diagram](ARCHITECTURE_DIAGRAM.md)** - Visual architecture
-- **[API Reference](API_FILES_REFERENCE.md)** - API documentation
-- **[AWS Quick Start](AWS_QUICK_START.md)** - Quick deployment guide
 
 ---
 
@@ -542,5 +540,6 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 **Built with ❤️ for India's Digital Future**
 
 *Empowering students, creators, and builders with AI-powered structured thinking*
+
 
 
