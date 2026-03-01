@@ -1,20 +1,8 @@
 // ============================================
 // RachnaX AI - Content Generation API
-// AWS Bedrock Implementation (Drop-in Replacement)
+// AWS Bedrock Implementation
 // ============================================
-//
-// This file is a complete replacement for api/generate.js
 // Architecture: API Gateway → Lambda → Bedrock (Claude 3 Haiku)
-//
-// Pure AWS implementation - no fallback providers
-//
-// TO USE:
-// 1. Deploy Lambda function (see Lambda/bedrock-handler.js)
-// 2. Create API Gateway and get URL
-// 3. Set AWS_API_GATEWAY_URL in environment variables
-// 4. Replace api/generate.js with this file
-// 5. Done!
-//
 // ============================================
 
 // RachnaX AI System Prompt
@@ -96,7 +84,7 @@ async function callAWSBedrockViaGateway(prompt) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      // Optional: Add API key if using API Gateway API keys
+
       ...(process.env.AWS_API_KEY && { 'x-api-key': process.env.AWS_API_KEY })
     },
     body: JSON.stringify({
@@ -193,3 +181,4 @@ export default async function handler(req, res) {
     });
   }
 }
+
