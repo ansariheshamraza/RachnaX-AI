@@ -4,7 +4,7 @@
 
 ### Complete Request Flow
 
-```
+```mermaid
 flowchart TD
 
 %% ---------------- FRONTEND ----------------
@@ -296,4 +296,5 @@ CloudWatch Alarms
 | Architecture | Status | Cost | Performance |
 |--------------|--------|------|-------------|
 | **AWS Bedrock** | Active | ~$13.80 | Better |
+
 
