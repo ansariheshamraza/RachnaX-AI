@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>RachnaX AI Workspace - Structured Intelligence for Creators</title>
+  <meta name="description" content="RachnaX AI Workspace provides a conversational interface for creating structured content. Transform your ideas into platform-ready content for blogs, Instagram, YouTube, and academic assignments.">
+  <meta name="keywords" content="RachnaX, AI workspace, content creation, structured content, blog writing, Instagram scripts, YouTube scripts, academic writing, AI content assistant">
+  <meta name="author" content="Ansari Hesham Raza">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../favicon.png">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rachnax.vercel.app/workspace/">
+  <meta property="og:title" content="RachnaX AI Workspace - Structured Intelligence for Creators">
+  <meta property="og:description" content="Transform your ideas into platform-ready content with RachnaX AI Workspace. Conversational interface for blogs, social media, and academic content.">
+  <meta property="og:image" content="https://rachnax.vercel.app/og-image.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://rachnax.vercel.app/workspace/">
+  <meta name="twitter:title" content="RachnaX AI Workspace - Structured Intelligence for Creators">
+  <meta name="twitter:description" content="Transform your ideas into platform-ready content with RachnaX AI Workspace. Conversational interface for blogs, social media, and academic content.">
+  <meta name="twitter:image" content="https://rachnax.vercel.app/og-image.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <div class="nav-brand">
+        <div class="nav-logo">
+          <img src="../logo.png" alt="RachnaX Logo" class="nav-logo-img" />
+        </div>
+        <span class="nav-brand-text">RachnaX</span>
+      </div>
+      
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="https://rachnax.vercel.app/#home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="https://rachnax.vercel.app/about/" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="https://rachnax.vercel.app/blog/" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="https://rachnax.vercel.app/workspace/" class="nav-link">Workspace</a></li>
+          <li class="nav-item"><a href="https://rachnax.vercel.app/#features" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="https://rachnax.vercel.app/#faq" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="https://rachnax.vercel.app/#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+      
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="nav-toggle-icon"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+      <canvas id="particle-canvas" class="particle-canvas"></canvas>
+      <div class="gradient-bg" id="gradient-bg"></div>
+      <div class="grid-pattern"></div>
+      <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+      </div>
+      <!-- Interactive 3D Mesh Effect -->
+      <canvas id="mesh-canvas" class="mesh-canvas"></canvas>
+      <div class="micro-dots"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-icon">✨</span>
+            <span class="badge-text">AI Content Creation Workspace</span>
+          </div>
+          <h1 class="hero-title">RachnaX AI Workspace</h1>
+          <p class="hero-subtitle">RachnaX Intelligence Studio is a guided AI workspace designed for Indian creators, students, and entrepreneurs who demand structure, clarity, and strategic depth.</p>
+          <div class="hero-cta">
+            <button type="button" class="btn-primary btn-large btn-animated" id="start-creating-btn" aria-label="Scroll to workspace">
+              <span class="btn-text">Start Creating</span>
+              <span class="btn-glow"></span>
+              <span class="btn-border-glow"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- Greeting Section -->
+    <section class="greeting-section">
+      <div class="greeting-container">
+        <div class="greeting-slider" id="greeting-slider">
+          <div class="greeting-text hidden-top"></div>
+          <div class="greeting-text prev-greeting"></div>
+          <div class="greeting-text current-greeting">Namaste</div>
+          <div class="greeting-text next-greeting"></div>
+          <div class="greeting-text hidden-bottom"></div>
+        </div>
+        <span class="greeting-micro-label">From RachnaX AI</span>
+      </div>
+    </section>
+
+     <!-- Workspace Section -->
+    <section class="workspace-section" id="workspace">
+      <div class="container">
+        <div class="workspace-header">
+          <h2 class="workspace-main-title">RachnaX AI Workspace</h2>
+          <p class="workspace-main-subtitle">Define your content & Customize your output.</p>
+          
+          <!-- Info Box -->
+          <div class="workspace-info-box">
+            <span class="ai-micro-label">RachnaX AI</span>
+            <ul class="info-list">
+              <li>This is not a prompt box.</li>
+              <li>It is a controlled creation environment.</li>
+              <li>The intelligence works with you.</li>
+            </ul>
+            <span class="bedrock-micro-label">Powered by Amazon AWS</span>
+          </div>
+        </div>
+        <div class="workspace-container">
+          <!-- Prompt Builder Panel -->
+          <div class="prompt-builder-panel">
+            <h2 class="panel-title">Define Your Creation</h2>
+            <p class="panel-subtitle">Tell RachnaX your needs, and we'll craft it perfectly for you</p>
+            
+            <!-- Identity Selector -->
+            <div class="prompt-field autocomplete-wrapper">
+              <label for="identity-selector" class="prompt-label">I am a</label>
+              <input 
+                type="text" 
+                id="identity-selector" 
+                class="prompt-input"
+                placeholder="Type your role or select from suggestions..."
+                aria-label="Select your identity"
+                autocomplete="off">
+            </div>
+
+            <!-- Creation Intent Selector -->
+            <div class="prompt-field autocomplete-wrapper">
+              <label for="creation-intent-selector" class="prompt-label">and I want to create</label>
+              <input 
+                type="text" 
+                id="creation-intent-selector" 
+                class="prompt-input"
+                placeholder="Type content type or select from suggestions..."
+                aria-label="Select content type"
+                autocomplete="off">
+            </div>
+
+            <!-- Raw Idea Canvas -->
+            <div class="prompt-field">
+              <label for="raw-idea-canvas" class="prompt-label-block">Here's what I'm thinking</label>
+              <textarea 
+                id="raw-idea-canvas" 
+                class="raw-idea-textarea" 
+                placeholder="Share your thoughts, ideas, or rough notes here. No need to be formal—just let your ideas flow..."
+                aria-label="Enter your content ideas"
+                rows="6"></textarea>
+            </div>
+
+            <!-- Brainstorm Mode Toggle Switch -->
+            <div class="brainstorm-mode-field">
+              <label class="brainstorm-toggle-label">
+                <span class="brainstorm-label-text">Enable Strategic Brainstorm Mode</span>
+                <input 
+                  type="checkbox" 
+                  id="brainstorm-mode-checkbox" 
+                  class="brainstorm-toggle-input"
+                  aria-label="Enable Strategic Brainstorm Mode">
+                <span class="brainstorm-toggle-slider"></span>
+              </label>
+              <p class="brainstorm-hint">RachnaX AI will provide brainstorm insights and strategic suggestions before your final content</p>
+            </div>
+
+            <!-- Context Refinement Section (Collapsible) -->
+            <div class="context-refinement-section">
+              <button 
+                type="button" 
+                class="context-toggle-btn" 
+                id="context-toggle-btn"
+                aria-expanded="false"
+                aria-controls="context-refinement-content"
+                aria-label="Toggle context refinement options">
+                <span class="toggle-text">Enhance Your Output</span>
+                <span class="toggle-icon" aria-hidden="true">▼</span>
+              </button>
+              
+              <div 
+                class="context-refinement-content" 
+                id="context-refinement-content"
+                aria-hidden="true">
+                
+                <!-- Target Audience -->
+                <div class="context-field autocomplete-wrapper">
+                  <label for="target-audience" class="context-label">Who's this for?</label>
+                  <input 
+                    type="text" 
+                    id="target-audience" 
+                    class="context-input"
+                    placeholder="Type your own or select from suggestions..."
+                    aria-label="Target audience"
+                    autocomplete="off">
+                </div>
+
+                <!-- Platform -->
+                <div class="context-field autocomplete-wrapper">
+                  <label for="platform" class="context-label">Where will this be shared?</label>
+                  <input 
+                    type="text" 
+                    id="platform" 
+                    class="context-input"
+                    placeholder="Type your own or select from suggestions..."
+                    aria-label="Platform"
+                    autocomplete="off">
+                </div>
+
+                <!-- Tone -->
+                <div class="context-field">
+                  <label for="tone" class="context-label">What tone should it have?</label>
+                  <select id="tone" class="context-select" aria-label="Select tone">
+                    <option value="">Choose a tone...</option>
+                    <option value="Professional">Professional</option>
+                    <option value="Casual">Casual</option>
+                    <option value="Friendly">Friendly</option>
+                    <option value="Formal">Formal</option>
+                    <option value="Conversational">Conversational</option>
+                    <option value="Inspirational">Inspirational</option>
+                    <option value="Cinematic">Cinematic</option>
+                    <option value="Narrative">Narrative</option>
+                    <option value="Explanatory">Explanatory</option>
+                    <option value="Informative">Informative</option>
+                    <option value="Strategic">Strategic</option>
+                    <option value="Analytical">Analytical</option>
+                    <option value="Technical Deep Dive">Technical Deep Dive</option>
+                    <option value="Consultant">Consultant</option>
+                    <option value="Opinionated">Opinionated</option>
+                    <option value="Persuasive">Persuasive</option>
+                    <option value="Reflective">Reflective</option>
+                  </select>
+                </div>
+
+                <!-- Language Complexity -->
+                <div class="context-field">
+                  <label for="language-complexity" class="context-label">Language complexity level?</label>
+                  <select id="language-complexity" class="context-select" aria-label="Select language complexity level">
+                    <option value="">Choose a level...</option>
+                    <option value="Simple">Simple (Easy to understand)</option>
+                    <option value="Intermediate">Intermediate (Balanced)</option>
+                    <option value="Advanced">Advanced (Sophisticated)</option>
+                  </select>
+                </div>
+
+                <!-- Output Length -->
+                <div class="context-field">
+                  <label for="output-length" class="context-label">How long should it be?</label>
+                  <select id="output-length" class="context-select" aria-label="Select output length">
+                    <option value="">Choose a length...</option>
+                    <option value="Short">Short (Quick read)</option>
+                    <option value="Medium">Medium (Standard length)</option>
+                    <option value="Long">Long (Comprehensive)</option>
+                  </select>
+                </div>
+
+                <!-- Output Language -->
+                <div class="context-field">
+                  <label for="output-language" class="context-label">Output language?</label>
+                  <select id="output-language" class="context-select" aria-label="Select output language">
+                    <option value="">Choose a language...</option>
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi (हिंदी)</option>
+                    <option value="Marathi - Indian Maharashtrian Language">Marathi (मराठी)</option>
+                    <option value="Hinglish">Hinglish (Hindi in English script)</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Structure Customization Grid -->
+            <div class="structure-customization-section">
+              <h3 class="structure-title">Structure Your Output</h3>
+              <p class="panel-subtitle">Define the framework, RachnaX will fit it intelligently</p>
+              <div 
+                class="structure-grid" 
+                id="structure-grid"
+                role="group"
+                aria-label="Structure customization options">
+                <!-- Structure buttons will be dynamically populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Generate Button -->
+            <div class="generate-button-container">
+              <button 
+                type="button" 
+                class="generate-button" 
+                id="generate-button"
+                aria-label="Generate content">
+                Generate Content
+              </button>
+            </div>
+          </div>
+
+          <!-- Output Area Panel -->
+          <div class="output-area-panel">
+            <h2 class="panel-title">Your Personalised Output</h2>
+            <p class="panel-subtitle">RachnaX provides structured content, tailored just for you</p>
+            
+            <!-- Output Placeholder State -->
+            <div class="output-placeholder" id="output-placeholder">
+              <div class="placeholder-icon" aria-hidden="true">✨</div>
+              <p class="placeholder-text">Your personalised content will appear here</p>
+              <p class="placeholder-subtext">Share your ideas in the prompt builder to get started</p>
+            </div>
+
+            <!-- Skeleton Loader State (initially hidden) -->
+            <div class="skeleton-loader" id="skeleton-loader" aria-live="polite" aria-busy="true">
+              <!-- Animated Status Messages -->
+              <div class="skeleton-status-container">
+                <div class="skeleton-icon" id="skeleton-icon" aria-hidden="true">🎨</div>
+                <p class="skeleton-status-text" id="skeleton-status-text">Analyzing your input...</p>
+              </div>
+              
+              <!-- Skeleton Lines -->
+              <div class="skeleton-lines-container">
+                <div class="skeleton-line skeleton-title"></div>
+                <div class="skeleton-line skeleton-text"></div>
+                <div class="skeleton-line skeleton-text"></div>
+                <div class="skeleton-line skeleton-text skeleton-short"></div>
+                <div class="skeleton-line skeleton-subtitle"></div>
+                <div class="skeleton-line skeleton-text"></div>
+                <div class="skeleton-line skeleton-text"></div>
+                <div class="skeleton-line skeleton-text"></div>
+                <div class="skeleton-line skeleton-text skeleton-short"></div>
+                <div class="skeleton-line skeleton-subtitle"></div>
+                <div class="skeleton-line skeleton-text"></div>
+                <div class="skeleton-line skeleton-text skeleton-short"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (optional, can be added later) -->
+
+  <!-- JavaScript -->
+  <script src="../script.js" defer></script>
+  <script src="index.js" defer></script>
+</body>
+</html>

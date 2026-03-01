@@ -1,0 +1,30 @@
+{
+  "name": "rachnax-landing-page",
+  "version": "1.0.0",
+  "description": "RachnaX - AI Content Assistant for Indian Creators",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "test:properties": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/properties/"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "cheerio": "^1.0.0-rc.12",
+    "css": "^3.0.0",
+    "fast-check": "^3.23.2",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "jsdom": "^28.0.0"
+  },
+  "dependencies": {
+    "@google/genai": "^1.43.0",
+    "openai": "^6.25.0"
+  },
+  "optionalDependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.1000.0"
+  },
+  "comments": {
+    "aws-sdk": "Install @aws-sdk/client-bedrock-runtime if using actual AWS Bedrock: npm install @aws-sdk/client-bedrock-runtime"
+  }
+}
