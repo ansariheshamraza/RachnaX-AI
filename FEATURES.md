@@ -491,6 +491,8 @@ Smart suggestions for faster input.
 
 Welcoming experience in multiple languages.
 
+![Greetings](/images/greetings.gif)
+
 **Features**:
 - 19 Indian language greetings
 - Vertical carousel animation
@@ -585,5 +587,6 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
 
 
