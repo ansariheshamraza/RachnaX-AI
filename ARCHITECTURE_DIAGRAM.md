@@ -188,13 +188,6 @@ rachnax/
 │   └── README.md           ← Quick reference
 │
 └── Documentation
-    ├── API_FILES_REFERENCE.md
-    ├── AWS_BEDROCK_SETUP.md
-    ├── AWS_QUICK_START.md
-    ├── AWS_DEPLOYMENT_CHECKLIST.md
-    ├── PROJECT_STATUS.md
-    ├── IMPLEMENTATION_COMPLETE.md
-    ├── AWS_INTEGRATION_SUMMARY.md
     └── ARCHITECTURE_DIAGRAM.md (this file)
 ```
 
@@ -295,6 +288,7 @@ CloudWatch Alarms
 | Architecture | Status | Cost | Performance |
 |--------------|--------|------|-------------|
 | **AWS Bedrock** | Active | ~$13.80 | Better |
+
 
 
 
