@@ -27,10 +27,19 @@ RachnaX AI is a structured thinking and content creation platform that leverages
 - ✅ **AWS CloudWatch** - Monitoring and logging
 
 **Architecture**:
-```
-User → Vercel Edge → API Gateway → Lambda → Bedrock → Response
-                                              ↓
-                                         CloudWatch
+```mermaid
+flowchart LR
+
+A[User Input]
+B[Vercel Edge]
+C[API Gateway]
+D[AWS Lambda]
+E[AWS Bedrock]
+F[Response]
+G[CloudWatch]
+
+A --> B --> C --> D --> E --> F
+D --> G
 ```
 
 **Region**: ap-south-1 (Mumbai) - Optimized for Indian users
@@ -484,3 +493,4 @@ RachnaX AI demonstrates the transformative power of AWS Generative AI services i
 
 **Built for India's Digital Future**  
 *Empowering students, creators, and builders with AI-powered structured thinking*
+
