@@ -571,7 +571,6 @@ Track and optimize performance.
 ## Considerable Future Features
 
 ### Q2 2026
-- [ ] RAG integration for enhanced accuracy
 - [ ] Streaming responses
 - [ ] Voice input
 - [ ] Export to PDF/DOCX
@@ -592,6 +591,7 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
 
 
 
