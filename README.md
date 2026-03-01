@@ -491,12 +491,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🤝 Contributing
-
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
----
-
 ## 📧 Contact
 
 - **Website**: [rachnax.vercel.app](https://rachnax.vercel.app)
@@ -540,6 +534,7 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 **Built with ❤️ for India's Digital Future**
 
 *Empowering students, creators, and builders with AI-powered structured thinking*
+
 
 
 
