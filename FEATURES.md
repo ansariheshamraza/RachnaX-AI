@@ -168,11 +168,14 @@ Create content in 19+ Indian languages with cultural context.
 - Proper grammar and syntax
 
 **Example**:
-```
-Input (English): "Write about Indian festivals"
-Output (Hindi): "भारतीय त्योहारों के बारे में..."
-Output (Tamil): "இந்திய பண்டிகைகள் பற்றி..."
-Output (Telugu): "భారతీయ పండుగల గురించి..."
+```mermaid
+flowchart LR
+
+A[Input<br/>English: "Write about Indian festivals"]
+
+A --> B[Hindi Output<br/>"भारतीय त्योहारों के बारे में..."]
+A --> C[Tamil Output<br/>"இந்திய பண்டிகைகள் பற்றி..."]
+A --> D[Telugu Output<br/>"భారతీయ పండుగల గురించి..."]
 ```
 
 ---
@@ -587,6 +590,7 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
 
 
 
