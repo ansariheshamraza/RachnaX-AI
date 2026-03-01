@@ -563,7 +563,7 @@ Track and optimize performance.
 
 ---
 
-## Upcoming Features
+## Considerable Future Features
 
 ### Q2 2026
 - [ ] RAG integration for enhanced accuracy
@@ -587,6 +587,7 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
 
 
 
