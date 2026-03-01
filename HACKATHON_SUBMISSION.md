@@ -147,7 +147,7 @@ India's digital economy faces critical content creation challenges:
 ```javascript
 {
   modelId: "anthropic.claude-3-haiku-20240307-v1:0",
-  maxTokens: 16000,
+  maxTokens: 1,200,
   systemPrompt: "RachnaX AI structured thinking engine...",
   anthropicVersion: "bedrock-2023-05-31"
 }
@@ -161,7 +161,7 @@ const command = new InvokeModelCommand({
   accept: "application/json",
   body: JSON.stringify({
     anthropic_version: "bedrock-2023-05-31",
-    max_tokens: 16000,
+    max_tokens: 1,200,
     messages: [{ role: "user", content: prompt }],
     system: systemPrompt
   })
@@ -247,7 +247,7 @@ Body:
 {
   "prompt": "user input",
   "systemPrompt": "RachnaX instructions",
-  "maxTokens": 16000
+  "maxTokens": 1,200
 }
 ```
 
@@ -294,9 +294,9 @@ Body:
 #### Immediate Value
 
 **1. Speed**
-- Manual: 2-4 hours per content piece
-- RachnaX AI: < 3 seconds
-- **Improvement**: 2400x faster
+- Manual: 0.5-1 hours per content piece
+- RachnaX AI: < 5 seconds
+- **Improvement**: 200x faster
 
 **2. Cost**
 - Professional writer: ₹2,000-5,000 per piece
@@ -343,8 +343,8 @@ Body:
 
 #### Measurable Impact
 
-**For Students** (Target: 10M users):
-- Time saved: 2-3 hours per assignment
+**For Students** (Target: 100K users):
+- Time saved: 1-2 hours per assignment
 - Quality improvement: 40-60%
 - Learning enhancement: Structured thinking skills
 - Cost savings: ₹0 vs ₹500-1000 per tutor session
@@ -493,4 +493,5 @@ RachnaX AI demonstrates the transformative power of AWS Generative AI services i
 
 **Built for India's Digital Future**  
 *Empowering students, creators, and builders with AI-powered structured thinking*
+
 
