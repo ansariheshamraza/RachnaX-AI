@@ -5,124 +5,68 @@
 ### Complete Request Flow
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                         FRONTEND                                 │
-│                    (workspace/index.js)                          │
-│                                                                  │
-│  User Input:                                                     │
-│  - Topic/Idea                                                    │
-│  - Tone (Professional, Casual, etc.)                            │
-│  - Structure (Blog, Essay, etc.)                                │
-│  - Language (English, Hindi, etc.)                              │
-│  - Context (Optional)                                            │
-│  - Brainstorm Mode (On/Off)                                     │
-└────────────────────────────┬────────────────────────────────────┘
-                             │
-                             │ 1. Fetch Access Token
-                             ▼
-                    ┌─────────────────┐
-                    │  /api/token     │
-                    │  (Vercel)       │
-                    └────────┬────────┘
-                             │
-                             │ 2. Fetch Endpoint Config
-                             ▼
-                    ┌─────────────────┐
-                    │  /api/endpoint  │
-                    │  (Obfuscated)   │
-                    └────────┬────────┘
-                             │
-                             │ 3. POST Content Generation Request
-                             ▼
-                    ┌─────────────────┐
-                    │ /api/generate   │
-                    │ (Vercel Edge)   │
-                    └────────┬────────┘
-                             │
-                             │ HTTPS Request
-                             ▼
-┌────────────────────────────────────────────────────────────────┐
-│                         AWS CLOUD                               │
-│                      (ap-south-1 Region)                        │
-│                                                                 │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │              AWS API GATEWAY (REST API)                   │  │
-│  │  - HTTPS Endpoint                                         │  │
-│  │  - CORS Configuration                                     │  │
-│  │  - Request Validation                                     │  │
-│  │  - Rate Limiting & Throttling                             │  │
-│  │  - API Key Authentication (Optional)                      │  │
-│  └────────────────────────┬─────────────────────────────────┘  │
-│                           │                                     │
-│                           │ Trigger Lambda                      │
-│                           ▼                                     │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │              AWS LAMBDA FUNCTION                          │  │
-│  │  Runtime: Node.js 20.x                                    │  │
-│  │  Memory: 512 MB                                           │  │
-│  │  Timeout: 30 seconds                                      │  │
-│  │  IAM Role: bedrock:InvokeModel                            │  │
-│  │                                                            │  │
-│  │  Process:                                                  │  │
-│  │  1. Parse request body                                    │  │
-│  │  2. Validate input                                        │  │
-│  │  3. Format prompt with system instructions                │  │
-│  │  4. Call Bedrock API                                      │  │
-│  │  5. Process response                                      │  │
-│  │  6. Return formatted output                               │  │
-│  └────────────────────────┬─────────────────────────────────┘  │
-│                           │                                     │
-│                           │ InvokeModel API Call                │
-│                           ▼                                     │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │              AWS BEDROCK                                  │  │
-│  │  Model: anthropic.claude-3-haiku-20240307-v1:0           │  │
-│  │  Type: Foundation Model (FM)                              │  │
-│  │  Provider: Anthropic                                      │  │
-│  │                                                            │  │
-│  │  Capabilities:                                             │  │
-│  │  - Natural Language Understanding                         │  │
-│  │  - Content Generation                                     │  │
-│  │  - Structured Thinking                                    │  │
-│  │  - Multi-language Support                                 │  │
-│  │  - Context-aware Responses                                │  │
-│  │                                                            │  │
-│  │  Configuration:                                            │  │
-│  │  - Max Tokens: 16,000                                     │  │
-│  │  - System Prompt: RachnaX AI Instructions                │  │
-│  └────────────────────────┬─────────────────────────────────┘  │
-│                           │                                     │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │              AWS CLOUDWATCH                               │  │
-│  │  - Lambda Execution Logs                                  │  │
-│  │  - API Gateway Access Logs                                │  │
-│  │  - Performance Metrics                                    │  │
-│  │  - Error Tracking                                         │  │
-│  │  - Cost Monitoring                                        │  │
-│  └───────────────────────────────────────────────────────────┘  │
-│                                                                 │
-└───────────────────────────┼─────────────────────────────────────┘
-                            │
-                            │ Response Flow
-                            ▼
-                   ┌─────────────────┐
-                   │  Lambda Returns │
-                   │  to API Gateway │
-                   └────────┬────────┘
-                            │
-                            ▼
-                   ┌─────────────────┐
-                   │  API Gateway    │
-                   │  Returns to     │
-                   │  Vercel Edge    │
-                   └────────┬────────┘
-                            │
-                            ▼
-                   ┌─────────────────┐
-                   │  Frontend       │
-                   │  Renders        │
-                   │  Markdown       │
-                   └─────────────────┘
+flowchart TD
+
+%% ---------------- FRONTEND ----------------
+subgraph FRONTEND["Frontend (workspace/index.js)"]
+A[User Input<br/>Topic / Tone / Structure / Language<br/>Context / Brainstorm Mode]
+end
+
+%% ---------------- VERCEL API ----------------
+subgraph VERCEL["Vercel API Layer"]
+B[/api/token<br/>Fetch Access Token/]
+C[/api/endpoint<br/>Fetch Endpoint Config (Obfuscated)/]
+D[/api/generate<br/>Content Generation Endpoint<br/>Vercel Edge/]
+end
+
+%% ---------------- AWS CLOUD ----------------
+subgraph AWS["AWS Cloud (ap-south-1)"]
+
+subgraph APIG["AWS API Gateway"]
+E[HTTPS Endpoint<br/>CORS Enabled<br/>Request Validation<br/>Rate Limiting<br/>API Key Auth]
+end
+
+subgraph LAMBDA["AWS Lambda (Node.js 20.x)"]
+F[Parse Request]
+G[Validate Input]
+H[Format Prompt with System Instructions]
+I[Invoke Bedrock API]
+J[Process Model Response]
+K[Return Formatted Output]
+end
+
+subgraph BEDROCK["AWS Bedrock"]
+L[Model: Claude 3 Haiku<br/>anthropic.claude-3-haiku-20240307-v1:0<br/>NLU + Content Generation<br/>Multilingual + Structured Thinking]
+end
+
+subgraph CLOUDWATCH["AWS CloudWatch"]
+M[Logs<br/>Metrics<br/>Error Tracking<br/>Cost Monitoring]
+end
+
+end
+
+%% ---------------- FLOW ----------------
+A -->|1 Fetch Token| B
+B -->|2 Fetch Endpoint Config| C
+C -->|3 POST Generate Request| D
+
+D -->|HTTPS Request| E
+E -->|Trigger Lambda| F
+
+F --> G
+G --> H
+H --> I
+I --> L
+L --> J
+J --> K
+
+K --> E
+E --> D
+D --> N[Frontend Renders Markdown Output]
+
+%% Monitoring
+F -. Logs .-> M
+E -. Metrics .-> M
 ```
 
 ---
@@ -352,3 +296,4 @@ CloudWatch Alarms
 | Architecture | Status | Cost | Performance |
 |--------------|--------|------|-------------|
 | **AWS Bedrock** | Active | ~$13.80 | Better |
+
