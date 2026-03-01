@@ -43,7 +43,7 @@ npm run deploy
 
 ## 📚 Full Instructions
 
-See **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** for complete step-by-step instructions including:
+See **[DEPLOYMENT_GUIDE.md](DEPLOYMENT.md)** for complete step-by-step instructions including:
 - IAM role creation
 - API Gateway setup
 - Bedrock model access
@@ -80,7 +80,7 @@ Breakdown:
 - Lambda: ~$0.02
 - API Gateway: ~$0.04
 
-See **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** for detailed cost breakdown.
+See **[DEPLOYMENT_GUIDE.md](DEPLOYMENT.md)** for detailed cost breakdown.
 
 ## 🧪 Testing
 
@@ -105,32 +105,6 @@ aws lambda invoke \
 # View response
 cat response.json
 ```
-
-## 📖 Documentation
-
-- **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** - Complete deployment guide
-- **[../AWS_QUICK_START.md](../AWS_QUICK_START.md)** - Quick start guide
-- **[../AWS_DEPLOYMENT_CHECKLIST.md](../AWS_DEPLOYMENT_CHECKLIST.md)** - Deployment checklist
-
-## 🔗 Related Files
-
-- **[../api/generate-aws-bedrock.js](../api/generate-aws-bedrock.js)** - API file that calls this Lambda
-- **[../API_FILES_REFERENCE.md](../API_FILES_REFERENCE.md)** - API documentation
-- **[../ARCHITECTURE_DIAGRAM.md](../ARCHITECTURE_DIAGRAM.md)** - Architecture diagrams
-
-## ⚠️ Important Notes
-
-1. This Lambda function is **NOT currently deployed** - it's ready when you need it
-2. The application currently uses GitHub Models + Gemini (free tier)
-3. Deploy this Lambda when you want to switch to AWS Bedrock
-4. See **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** for complete instructions
-
-## 🎯 Next Steps
-
-1. Read **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)**
-2. Follow the deployment steps
-3. Test the Lambda function
-4. Update the application to use AWS Bedrock
 
 ---
 
