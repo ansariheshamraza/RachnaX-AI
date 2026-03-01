@@ -550,14 +550,14 @@ Track and optimize performance.
 
 | Feature | RachnaX AI | ChatGPT | Jasper | Copy.ai |
 |---------|-----------|---------|--------|---------|
-| Structured Thinking | ✅ | ❌ | ❌ | ❌ |
-| Indian Languages | 19+ | Limited | No | No |
+| Structured Thinking | ✅ | ✅ | ❌ | ❌ |
+| Indian Languages | 19+ | Almost | No | No |
 | Brainstorm Mode | ✅ | ❌ | ❌ | ❌ |
 | AWS Infrastructure | ✅ | ❌ | ❌ | ❌ |
 | Context Awareness | ✅ | ✅ | ✅ | ✅ |
-| Tone Options | 15+ | Limited | 10+ | 8+ |
+| Tone Options | 15+ | Almost | 10+ | 8+ |
 | Structure Types | 10+ | Manual | 50+ | 90+ |
-| Response Time | < 3s | 3-5s | 2-4s | 2-3s |
+| Response Time | 3-5s | 3-5s | 2-4s | 2-3s |
 | Cost | Low | Medium | High | High |
 | Open Source | ✅ | ❌ | ❌ | ❌ |
 
@@ -587,6 +587,7 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
 
 
 
