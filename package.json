@@ -1,5 +1,5 @@
 {
-  "name": "rachnax-landing-page",
+  "name": "rachnax-ai",
   "version": "1.0.0",
   "description": "RachnaX - AI Content Assistant for Indian Creators",
   "type": "module",
@@ -18,13 +18,7 @@
     "jsdom": "^28.0.0"
   },
   "dependencies": {
-    "@google/genai": "^1.43.0",
-    "openai": "^6.25.0"
-  },
-  "optionalDependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.1000.0"
-  },
-  "comments": {
-    "aws-sdk": "Install @aws-sdk/client-bedrock-runtime if using actual AWS Bedrock: npm install @aws-sdk/client-bedrock-runtime"
   }
 }
+
