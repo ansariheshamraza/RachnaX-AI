@@ -71,7 +71,7 @@ export const handler = async (event) => {
     // Prepare Claude 3 payload
     const payload = {
       anthropic_version: "bedrock-2023-05-31",
-      max_tokens: maxTokens || 16000,
+      max_tokens: maxTokens || 1200,
       messages: [
         {
           role: "user",
@@ -138,3 +138,4 @@ export const handler = async (event) => {
     };
   }
 };
+
