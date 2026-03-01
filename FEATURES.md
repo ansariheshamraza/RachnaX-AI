@@ -559,9 +559,8 @@ Track and optimize performance.
 |---------|-----------|---------|--------|---------|
 | Structured Thinking | ✅ | ✅ | ❌ | ❌ |
 | Indian Languages | 19+ | Almost | No | No |
-| Brainstorm Mode | ✅ | ❌ | ❌ | ❌ |
+| Brainstorm Mode | ✅ | ✅ | ❌ | ❌ |
 | AWS Infrastructure | ✅ | ❌ | ❌ | ❌ |
-| Context Awareness | ✅ | ✅ | ✅ | ✅ |
 | Tone Options | 15+ | Almost | 10+ | 8+ |
 | Structure Types | 10+ | Manual | 50+ | 90+ |
 | Response Time | 3-5s | 3-5s | 2-4s | 2-3s |
@@ -594,6 +593,7 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
 
 
 
