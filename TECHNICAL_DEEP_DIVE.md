@@ -11,7 +11,7 @@
 **Performance Characteristics**:
 - Response time: 1-3 seconds (fastest in Claude 3 family)
 - Context window: 200K tokens
-- Output limit: 4K tokens (configured to 16K for our use case)
+- Output limit: 4K tokens (configured to 1.2K for our use case)
 - Multilingual: Strong performance across languages
 
 **Cost Analysis**:
@@ -711,4 +711,5 @@ jobs:
 
 **Technical Excellence Through AWS**  
 *Leveraging AWS Bedrock, Lambda, and API Gateway for scalable AI*
+
 
