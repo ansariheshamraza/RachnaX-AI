@@ -98,7 +98,6 @@ Go beyond simple generation with deep strategic thinking.
 
 **Example Output Structure**:
 ```mermaid
-1. Core Analysis
 flowchart TD
 
 A[Analysis Framework]
@@ -595,6 +594,7 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
 
 
 
