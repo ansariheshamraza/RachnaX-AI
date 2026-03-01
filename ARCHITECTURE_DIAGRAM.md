@@ -178,7 +178,6 @@ rachnax/
 ├── API (Current - Active)
 │   ├── generate.js         ← Fetch
 │   ├── endpoint.js         ← Obfuscation
-│   ├── token.js            ← Authentication
 │   └── health.js           ← Health check
 │
 │
@@ -296,6 +295,7 @@ CloudWatch Alarms
 | Architecture | Status | Cost | Performance |
 |--------------|--------|------|-------------|
 | **AWS Bedrock** | Active | ~$13.80 | Better |
+
 
 
 
