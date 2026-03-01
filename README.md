@@ -36,7 +36,7 @@ RachnaX AI is an intelligent content generation platform that goes beyond simple
 4. **Support Multiple Languages** - Generate content in 19+ Indian languages
 5. **Adapt to Context** - Understand tone, structure, and audience requirements
 
-### Key Features
+### Key Features - [Refer FEATURES.md](FEATURES.md)
 
 #### 🎨 Intelligent Content Generation
 - **Multiple Tones**: Professional, Casual, Academic, Persuasive, Technical, and 11 more
@@ -540,6 +540,7 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 **Built with ❤️ for India's Digital Future**
 
 *Empowering students, creators, and builders with AI-powered structured thinking*
+
 
 
 
