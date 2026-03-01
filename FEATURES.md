@@ -14,13 +14,53 @@ Transform raw ideas into structured, professional content in seconds.
 - **Context Awareness**: Optional context input for personalized output
 
 **How It Works**:
-```
-User Input → AI Processing → Structured Output
-   ↓              ↓                ↓
-Topic         AWS Bedrock      Publication-Ready
-Tone          Claude 3 Haiku    Markdown Content
-Structure     System Prompt     Formatted Text
-Language      12K Tokens        Professional Quality
+```mermaid
+flowchart LR
+
+A[User Input]
+B[AI Processing]
+C[Structured Output]
+
+A --> B --> C
+
+subgraph INPUT_DETAILS [User Input Details]
+A1[Topic]
+A2[Tone]
+A3[Structure]
+A4[Language]
+A5[Target Audience]
+A6[Target Platform]
+A7[More]
+end
+
+subgraph AI_DETAILS [AI Processing]
+B1[AWS Bedrock]
+B2[Claude 3 Haiku]
+B3[System Prompt]
+B4[12K Tokens]
+end
+
+subgraph OUTPUT_DETAILS [Structured Output]
+C1[Publication-Ready]
+C2[Markdown Content]
+C3[Formatted Text]
+C4[Professional Quality]
+end
+
+A --- A1
+A --- A2
+A --- A3
+A --- A4
+
+B --- B1
+B --- B2
+B --- B3
+B --- B4
+
+C --- C1
+C --- C2
+C --- C3
+C --- C4
 ```
 
 **Example Use Cases**:
@@ -542,3 +582,4 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
