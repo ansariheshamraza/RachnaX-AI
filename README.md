@@ -33,7 +33,7 @@ RachnaX AI is an intelligent content generation platform that goes beyond simple
 1. **Transform Ideas into Structure** - Convert vague thoughts into organized frameworks
 2. **Enhance Thinking Quality** - Improve how users articulate and develop ideas
 3. **Generate Publication-Ready Content** - Create professional content across formats
-4. **Support Multiple Languages** - Generate content in Indian languages
+4. **Support Multiple Languages** - Generate content in 19+ Indian languages
 5. **Adapt to Context** - Understand tone, structure, and audience requirements
 
 ### Key Features
@@ -41,7 +41,7 @@ RachnaX AI is an intelligent content generation platform that goes beyond simple
 #### 🎨 Intelligent Content Generation
 - **Multiple Tones**: Professional, Casual, Academic, Persuasive, Technical, and 11 more
 - **Diverse Structures**: Blog posts, Essays, Social media, Technical docs, Scripts
-- **Language Support**: English, Hindi, Marathi, Hinglish - Hindi in English Typescript -Indian languages
+- **Language Support**: English, Hindi, Tamil, Telugu, Bengali, and 15+ Indian languages
 - **Context-Aware**: Optional context input for personalized content
 
 #### 🧠 Strategic Brainstorm Mode
@@ -134,14 +134,13 @@ Human thinking is often non-linear and unstructured. AI helps:
 
 ### 2. **Language Barriers**
 India's linguistic diversity creates content challenges:
-- 19+ Indian languages supported
+- Indian languages supported
 - Natural language understanding across languages
 - Context-aware translations
 - Cultural nuances preserved
 
 ### 3. **Quality at Scale**
 Manual content creation doesn't scale:
-- Generate multiple variations instantly
 - Maintain consistent quality
 - Adapt tone and style automatically
 - Reduce time from hours to seconds
@@ -370,7 +369,7 @@ Content creation is mentally taxing:
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/yourusername/rachnax-ai.git
+   git clone https://github.com/ansariheshamraza/rachnax-ai.git
    cd rachnax-ai
    ```
 
@@ -503,8 +502,7 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 ## 📧 Contact
 
 - **Website**: [rachnax.vercel.app](https://rachnax.vercel.app)
-- **Email**: contact@rachnax.com
-- **Hackathon**: [AI for Bharat 2024](https://aiforabharat.devfolio.co/)
+- **Hackathon**: [AI for Bharat 2026](https://vision.hack2skill.com/event/ai-for-bharat)
 
 ---
 
@@ -533,17 +531,16 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 - **[ARCHITECTURE_DIAGRAM.md](ARCHITECTURE_DIAGRAM.md)** - System architecture diagrams
 
 ### For Deployment
-- **[Lambda/DEPLOYMENT_GUIDE.md](Lambda/DEPLOYMENT_GUIDE.md)** - Complete AWS deployment guide
-- **[AWS_QUICK_START.md](AWS_QUICK_START.md)** - Quick deployment steps
-- **[API_FILES_REFERENCE.md](API_FILES_REFERENCE.md)** - API documentation
+- **[Lambda/DEPLOYMENT_GUIDE.md](Lambda/DEPLOYMENT.md)** - Complete AWS deployment guide
 
 ### For Hackathon
 - **[HACKATHON_SUBMISSION.md](HACKATHON_SUBMISSION.md)** - Hackathon submission document
-- **[AI for Bharat Challenge](https://aiforabharat.devfolio.co/)** - Hackathon details
+- **[AI for Bharat Challenge](https://vision.hack2skill.com/event/ai-for-bharat)** - Hackathon details
 
 ---
 
 **Built with ❤️ for India's Digital Future**
 
 *Empowering students, creators, and builders with AI-powered structured thinking*
+
 
