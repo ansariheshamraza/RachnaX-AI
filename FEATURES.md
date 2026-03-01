@@ -171,11 +171,11 @@ Create content in 19+ Indian languages with cultural context.
 ```mermaid
 flowchart LR
 
-A[Input<br/>English: "Write about Indian festivals"]
+A[English Input - Write about Indian festivals]
 
-A --> B[Hindi Output<br/>"भारतीय त्योहारों के बारे में..."]
-A --> C[Tamil Output<br/>"இந்திய பண்டிகைகள் பற்றி..."]
-A --> D[Telugu Output<br/>"భారతీయ పండుగల గురించి..."]
+A --> B[Hindi Output - भारतीय त्योहारों के बारे में]
+A --> C[Tamil Output - இந்திய பண்டிகைகள் பற்றி]
+A --> D[Telugu Output - భారతీయ పండుగల గురించి]
 ```
 
 ---
@@ -590,6 +590,7 @@ Track and optimize performance.
 
 **Feature-Rich AI Platform**  
 *Built on AWS Bedrock for reliability and scale*
+
 
 
 
