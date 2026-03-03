@@ -282,7 +282,7 @@ Content creation is mentally taxing:
 - Reflective
 - And more...
 
-### Structure Types
+### Structure Types (15+)
 - Blog Post
 - Essay
 - Social Media Post
@@ -534,6 +534,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Built with ❤️ for India's Digital Future**
 
 *Empowering students, creators, and builders with AI-powered structured thinking*
+
 
 
 
