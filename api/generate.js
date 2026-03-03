@@ -5,6 +5,10 @@
 // Architecture: API Gateway → Lambda → Bedrock (Claude 3 Haiku)
 // ============================================
 
+// this is for fallback - incase bedrock throws any error
+import OpenAI from "openai";
+import { GoogleGenAI } from "@google/genai";
+
 // RachnaX AI System Prompt
 const systemPrompt = `You are RachnaX AI — a structured thinking and execution engine designed for ambitious students, creators, and builders.
 
@@ -72,7 +76,7 @@ Response Style:
 You are not just answering.
 You are upgrading the user's thinking and execution capacity.`;
 
-// AWS Bedrock via API Gateway
+// AWS Bedrock via API Gateway (Primary)
 async function callAWSBedrockViaGateway(prompt) {
   const apiGatewayUrl = process.env.AWS_API_GATEWAY_URL;
   
@@ -84,14 +88,14 @@ async function callAWSBedrockViaGateway(prompt) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-
+      // Optional: Add API key if using API Gateway API keys
       ...(process.env.AWS_API_KEY && { 'x-api-key': process.env.AWS_API_KEY })
     },
     body: JSON.stringify({
       prompt: prompt,
       systemPrompt: systemPrompt,
       modelId: 'anthropic.claude-3-haiku-20240307-v1:0',
-      maxTokens: 1200
+      maxTokens: 16000
     })
   });
 
@@ -104,6 +108,60 @@ async function callAWSBedrockViaGateway(prompt) {
   
   // Handle different response formats
   return data.content || data.output || data.text || data.body?.content || "";
+}
+
+// GitHub Models API (Fallback 1)
+async function callGitHubModels(prompt) {
+  const githubToken = process.env.GITHUB_TOKEN;
+  
+  if (!githubToken || githubToken === 'your_github_token_here') {
+    throw new Error("GitHub token not configured");
+  }
+
+  const baseUrl = "https://models.inference.ai.azure.com";
+  const modelName = "gpt-4o-mini";
+
+  const openai = new OpenAI({ 
+    apiKey: githubToken,
+    baseURL: baseUrl
+  });
+
+  const completion = await openai.chat.completions.create({
+    model: modelName,
+    messages: [
+      {
+        role: "system",
+        content: systemPrompt
+      },
+      {
+        role: "user",
+        content: prompt
+      }
+    ],
+    max_completion_tokens: 16000
+  });
+
+  return completion.choices?.[0]?.message?.content || "";
+}
+
+// Gemini API (Fallback 2)
+async function callGeminiAPI(prompt) {
+  const geminiApiKey = process.env.GEMINI_API_KEY;
+  
+  if (!geminiApiKey || geminiApiKey === 'your_gemini_api_key_here') {
+    throw new Error("Gemini API key not configured");
+  }
+
+  const ai = new GoogleGenAI({
+    apiKey: geminiApiKey
+  });
+
+  const response = await ai.models.generateContent({
+    model: "gemini-1.5-flash",
+    contents: `${systemPrompt}\n\nUser Query: ${prompt}`,
+  });
+
+  return response.text || "";
 }
 
 export default async function handler(req, res) {
@@ -143,11 +201,45 @@ export default async function handler(req, res) {
       });
     }
 
-    // Call AWS Bedrock via API Gateway
-    const text = await callAWSBedrockViaGateway(prompt);
-    
-    if (!text) {
-      throw new Error("No content generated from AWS Bedrock");
+    let text = "";
+    let usedProvider = "aws-bedrock";
+
+    try {
+      // Try AWS Bedrock via API Gateway first
+      text = await callAWSBedrockViaGateway(prompt);
+      
+      if (!text) {
+        throw new Error("No content generated from AWS Bedrock");
+      }
+      
+      usedProvider = "aws-bedrock";
+      
+    } catch (primaryError) {
+      // Fallback 1: Try GitHub Models
+      try {
+        text = await callGitHubModels(prompt);
+        
+        if (!text) {
+          throw new Error("No content generated from GitHub Models");
+        }
+        
+        usedProvider = "github-models";
+        
+      } catch (secondaryError) {
+        // Fallback 2: Try Gemini API
+        try {
+          text = await callGeminiAPI(prompt);
+          
+          if (!text) {
+            throw new Error("No content generated from Gemini");
+          }
+          
+          usedProvider = "gemini";
+          
+        } catch (tertiaryError) {
+          throw new Error("All generation services unavailable");
+        }
+      }
     }
 
     return res.status(200).json({
@@ -155,7 +247,8 @@ export default async function handler(req, res) {
       output: text,
       engine: engine,
       language: language,
-      model: "anthropic.claude-3-haiku-20240307-v1:0"
+      model: "anthropic.claude-3-haiku-20240307-v1:0",
+      provider: usedProvider // Internal tracking (not shown to user)
     });
 
   } catch (error) {
@@ -173,6 +266,8 @@ export default async function handler(req, res) {
       userMessage = "AWS Bedrock service not configured.";
     } else if (error.message?.includes('No content generated')) {
       userMessage = "No content generated. Please try again.";
+    } else if (error.message?.includes('All generation services unavailable')) {
+      userMessage = "Service temporarily unavailable. Please try again later.";
     }
     
     return res.status(500).json({
@@ -181,4 +276,5 @@ export default async function handler(req, res) {
     });
   }
 }
+
 
