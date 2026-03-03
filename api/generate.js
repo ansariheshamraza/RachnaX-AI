@@ -95,7 +95,7 @@ async function callAWSBedrockViaGateway(prompt) {
       prompt: prompt,
       systemPrompt: systemPrompt,
       modelId: 'anthropic.claude-3-haiku-20240307-v1:0',
-      maxTokens: 16000
+      maxTokens: 1200
     })
   });
 
@@ -276,5 +276,6 @@ export default async function handler(req, res) {
     });
   }
 }
+
 
 
