@@ -5,7 +5,7 @@
 ### Complete Request Flow
 
 ```mermaid
-flowchart TD
+flowchart LR
 
 %% ---------------- FRONTEND ----------------
 subgraph FRONTEND["Frontend (workspace/index.js)"]
@@ -288,6 +288,7 @@ CloudWatch Alarms
 | Architecture | Status | Cost | Performance |
 |--------------|--------|------|-------------|
 | **AWS Bedrock** | Active | ~$13.80 | Better |
+
 
 
 
