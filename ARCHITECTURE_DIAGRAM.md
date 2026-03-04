@@ -9,11 +9,13 @@ flowchart LR
 
 %% ---------------- FRONTEND ----------------
 subgraph FRONTEND["Frontend (workspace/index.js)"]
+direction LR
 A[User Input<br/>Topic / Tone / Structure / Language<br/>Context / Brainstorm Mode]
 end
 
 %% ---------------- VERCEL API ----------------
 subgraph VERCEL["Vercel API Layer"]
+direction LR
 B[/api/token<br/>Fetch Access Token/]
 C[/api/endpoint<br/>Fetch Endpoint Config Obfuscated/]
 D[/api/generate<br/>Content Generation Endpoint<br/>Vercel Edge/]
@@ -21,12 +23,14 @@ end
 
 %% ---------------- AWS CLOUD ----------------
 subgraph AWS["AWS Cloud (ap-south-1)"]
+direction LR
 
 subgraph APIG["AWS API Gateway"]
 E[HTTPS Endpoint<br/>CORS Enabled<br/>Request Validation<br/>Rate Limiting<br/>API Key Auth]
 end
 
 subgraph LAMBDA["AWS Lambda (Node.js 20.x)"]
+direction LR
 F[Parse Request]
 G[Validate Input]
 H[Format Prompt with System Instructions]
@@ -36,11 +40,11 @@ K[Return Formatted Output]
 end
 
 subgraph BEDROCK["AWS Bedrock"]
-L[Model: Claude 3 Haiku<br/>anthropic.claude-3-haiku-20240307-v1:0<br/>NLU + Content Generation<br/>Multilingual + Structured Thinking]
+L[Model: Claude 3 Haiku<br/>NLU + Content Generation<br/>Multilingual + Structured Thinking]
 end
 
 subgraph CLOUDWATCH["AWS CloudWatch"]
-M[Logs<br/>Metrics<br/>Error Tracking<br/>Cost Monitoring]
+M[Logs / Metrics / Error Tracking / Cost Monitoring]
 end
 
 end
@@ -53,12 +57,7 @@ C -->|3 POST Generate Request| D
 D -->|HTTPS Request| E
 E -->|Trigger Lambda| F
 
-F --> G
-G --> H
-H --> I
-I --> L
-L --> J
-J --> K
+F --> G --> H --> I --> L --> J --> K
 
 K --> E
 E --> D
@@ -288,6 +287,7 @@ CloudWatch Alarms
 | Architecture | Status | Cost | Performance |
 |--------------|--------|------|-------------|
 | **AWS Bedrock** | Active | ~$13.80 | Better |
+
 
 
 
