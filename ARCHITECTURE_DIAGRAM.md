@@ -8,64 +8,69 @@
 flowchart LR
 
 %% ---------------- FRONTEND ----------------
-subgraph FRONTEND["Frontend (workspace/index.js)"]
-direction LR
-A[User Input<br/>Topic / Tone / Structure / Language<br/>Context / Brainstorm Mode]
+subgraph FRONTEND["Frontend"]
+direction TB
+A[User Input<br/>Topic • Tone • Structure<br/>Language • Context • Brainstorm]
 end
 
-%% ---------------- VERCEL API ----------------
+%% ---------------- VERCEL ----------------
 subgraph VERCEL["Vercel API Layer"]
-direction LR
-B[/api/token<br/>Fetch Access Token/]
-C[/api/endpoint<br/>Fetch Endpoint Config Obfuscated/]
-D[/api/generate<br/>Content Generation Endpoint<br/>Vercel Edge/]
+direction TB
+B[/api/token/]
+C[/api/endpoint/]
+D[/api/generate/]
 end
 
-%% ---------------- AWS CLOUD ----------------
+%% ---------------- AWS ----------------
 subgraph AWS["AWS Cloud (ap-south-1)"]
 direction LR
 
-subgraph APIG["AWS API Gateway"]
-E[HTTPS Endpoint<br/>CORS Enabled<br/>Request Validation<br/>Rate Limiting<br/>API Key Auth]
+subgraph APIG["API Gateway"]
+E[HTTPS Endpoint]
 end
 
-subgraph LAMBDA["AWS Lambda (Node.js 20.x)"]
+subgraph LAMBDA["Lambda"]
 direction LR
-F[Parse Request]
-G[Validate Input]
-H[Format Prompt with System Instructions]
-I[Invoke Bedrock API]
-J[Process Model Response]
-K[Return Formatted Output]
+F[Parse]
+G[Validate]
+H[Prompt]
+I[Invoke Bedrock]
+J[Process]
+K[Return]
 end
 
 subgraph BEDROCK["AWS Bedrock"]
-L[Model: Claude 3 Haiku<br/>NLU + Content Generation<br/>Multilingual + Structured Thinking]
+L[Claude 3 Haiku]
 end
 
-subgraph CLOUDWATCH["AWS CloudWatch"]
-M[Logs / Metrics / Error Tracking / Cost Monitoring]
+subgraph CLOUDWATCH["CloudWatch"]
+M[Logs & Metrics]
 end
 
 end
 
-%% ---------------- FLOW ----------------
-A -->|1 Fetch Token| B
-B -->|2 Fetch Endpoint Config| C
-C -->|3 POST Generate Request| D
+%% -------- REQUEST FLOW --------
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G --> H --> I --> L
 
-D -->|HTTPS Request| E
-E -->|Trigger Lambda| F
+%% -------- RESPONSE FLOW --------
+L -.-> J
+J -.-> K
+K -.-> E
+E -.-> D
+D -.-> N[Render Markdown UI]
 
-F --> G --> H --> I --> L --> J --> K
+%% -------- MONITORING --------
+F -.-> M
+E -.-> M
 
-K --> E
-E --> D
-D --> N[Frontend Renders Markdown Output]
-
-%% Monitoring
-F -. Logs .-> M
-E -. Metrics .-> M
+%% -------- STYLING --------
+linkStyle 0,1,2,3,4,5,6,7 stroke:#2563eb,stroke-width:2px
+linkStyle 8,9,10,11,12 stroke:#16a34a,stroke-width:2px,stroke-dasharray:5 5
 ```
 
 ---
@@ -287,6 +292,7 @@ CloudWatch Alarms
 | Architecture | Status | Cost | Performance |
 |--------------|--------|------|-------------|
 | **AWS Bedrock** | Active | ~$13.80 | Better |
+
 
 
 
